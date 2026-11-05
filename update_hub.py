@@ -16,6 +16,7 @@ SRC = {
     "jichul": os.path.join(BASE, "★ 판관비 예산안", "☆ 예산안 자동작성", "version.json"),
     "overview": os.path.join(BASE, "☆ 분양개요 자동작성", "version.json"),
     "contract": os.path.join(BASE, "☆ 공급계약서 자동작성", "version.json"),
+    "notice": os.path.join(BASE, "☆ 입주자모집공고 자동작성", "version.json"),
     "hub": os.path.join(HERE, "version.json"),
 }
 pages = {}

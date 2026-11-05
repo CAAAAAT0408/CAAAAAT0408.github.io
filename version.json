@@ -2,11 +2,18 @@
  "pages": {
   "hub": {
    "name": "자동화 도구 모음",
-   "version": "1.0",
+   "version": "1.1",
    "files": [
     "index.html"
    ],
    "changelog": [
+    {
+     "version": "1.1",
+     "date": "2026-11-05",
+     "changes": [
+      "입주자모집공고 자동작성 추가(도구 5개)"
+     ]
+    },
     {
      "version": "1.0",
      "date": "2026-11-05",
