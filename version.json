@@ -1,0 +1,21 @@
+{
+ "pages": {
+  "hub": {
+   "name": "자동화 도구 모음",
+   "version": "1.0",
+   "files": [
+    "index.html"
+   ],
+   "changelog": [
+    {
+     "version": "1.0",
+     "date": "2026-11-05",
+     "changes": [
+      "자동화 도구 모음 페이지 첫 버전 — 도구 5개 바로가기, 버전·수정 이력 표시"
+     ]
+    }
+   ],
+   "history": []
+  }
+ }
+}
