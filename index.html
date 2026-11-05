@@ -5,120 +5,102 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>자동화 도구 모음_v1.0</title>
 <style>
-:root{--bg:#f4f5f7;--card:#fff;--line:#d9dde3;--ink:#1d2330;--sub:#5b6474;--accent:#1f5fbf;--accent2:#e8f0fc;--ok:#1b7f3b;--okbg:#e9f7ee;--warn:#9a5b00;--warnbg:#fff6e5}
+:root{--bg:#eef1f6;--ink:#1b2335;--sub:#5f6b7d;--line:#e2e6ee;--accent:#2457c5;--accent-d:#1b47a3;--soft:#f4f7fc}
 *{box-sizing:border-box}
-body{margin:0;background:var(--bg);color:var(--ink);font:14px/1.5 "Malgun Gothic","맑은 고딕",sans-serif}
-header{background:#1e2a44;color:#fff;padding:16px 24px;display:flex;align-items:baseline;gap:16px;flex-wrap:wrap}
-header h1{font-size:20px;margin:0}
-header span{color:#c6d0e3;font-size:13px}
-main{max-width:1100px;margin:0 auto;padding:18px 16px 60px}
-.note{color:var(--sub);font-size:12.5px;margin:0 0 14px}
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(500px,1fr));gap:14px}
-@media (max-width:560px){.grid{grid-template-columns:1fr}}
-.card{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:16px 18px;display:flex;flex-direction:column;gap:10px}
-.card .top{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
-.card h2{font-size:17px;margin:0}
-.ver{display:inline-block;background:var(--accent2);color:var(--accent);border-radius:12px;padding:1px 10px;font-size:12.5px;font-weight:bold}
-.ver.err{background:var(--warnbg);color:var(--warn);font-weight:normal}
-.date{color:var(--sub);font-size:12px}
-.desc{margin:0;color:var(--ink)}
-.links{display:flex;gap:8px;flex-wrap:wrap}
-.btn{display:inline-block;border:1px solid var(--accent);background:var(--accent);color:#fff;border-radius:6px;padding:6px 14px;text-decoration:none;font-size:13.5px}
-.btn.sub{background:#fff;color:var(--accent)}
-.btn.dim{border-color:var(--line);color:var(--sub);background:#fff}
-details{border-top:1px dashed var(--line);padding-top:8px}
-summary{cursor:pointer;color:var(--sub);font-size:13px;list-style:none}
-summary::-webkit-details-marker{display:none}
-summary:before{content:"▸ ";color:var(--sub)}
-details[open]>summary:before{content:"▾ "}
-.log{margin:6px 0 0;padding:0;list-style:none}
-.log li{padding:5px 0;border-bottom:1px solid #eef1f5;font-size:13px}
+html,body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.6 "Malgun Gothic","맑은 고딕","Segoe UI",sans-serif}
+header{background:linear-gradient(135deg,#17213a 0%,#24407a 100%);color:#fff;padding:34px 20px 30px;text-align:center}
+header h1{margin:0;font-size:24px;letter-spacing:-.3px}
+header h1 .ver{font-size:1em!important;margin-left:0!important;font-weight:bold!important;opacity:.85!important}
+header p{margin:8px 0 0;color:#c9d4ea;font-size:13.5px}
+main{max-width:600px;margin:0 auto;padding:26px 16px 50px}
+.tool{background:#fff;border:1px solid var(--line);border-radius:16px;padding:22px 24px 20px;margin:0 0 16px;box-shadow:0 4px 16px rgba(23,33,58,.06);transition:box-shadow .15s,transform .15s}
+.tool:hover{box-shadow:0 8px 24px rgba(23,33,58,.10);transform:translateY(-1px)}
+.tool h2{margin:0 0 6px;font-size:19px;letter-spacing:-.2px}
+.tool h2 .v{color:var(--accent)}
+.tool .desc{margin:0 0 16px;color:var(--sub);font-size:14px}
+.act{display:flex;align-items:center;gap:16px}
+.btn{flex:1;display:block;text-align:center;background:var(--accent);color:#fff;text-decoration:none;font-weight:bold;font-size:15px;padding:11px 16px;border-radius:11px}
+.btn:hover{background:var(--accent-d)}
+.tog{color:var(--accent);font-size:13.5px;cursor:pointer;white-space:nowrap;user-select:none}
+.tog:before{content:"▸ "}
+.tool.open .tog:before{content:"▾ "}
+.log{display:none;margin:16px 0 0;background:var(--soft);border-radius:12px;padding:12px 16px;font-size:13.5px}
+.tool.open .log{display:block}
+.log ul{margin:0;padding:0;list-style:none}
+.log li{padding:5px 0;border-bottom:1px solid #e5eaf3}
 .log li:last-child{border-bottom:none}
-.log b{color:var(--accent);margin-right:6px}
-.log .d{color:var(--sub);font-size:12px;margin-right:6px}
-.log ul{margin:2px 0 0;padding-left:18px}
-.hist{color:var(--sub);font-size:12.5px}
-.hist li{padding:2px 0;border:none}
-footer{max-width:1100px;margin:30px auto 0;padding:0 16px;color:var(--sub);font-size:12px}
-footer details{border:none}
+.log b{color:var(--accent);margin-right:8px}
+.log .d{color:var(--sub);font-size:12.5px;margin-right:8px}
+.log li ul{margin:4px 0 0;padding-left:18px;list-style:disc}
+.log li ul li{border:none;padding:1px 0}
+.hist{margin-top:8px;color:var(--sub);font-size:12.5px}
+.hist summary{cursor:pointer;list-style:none}
+.hist summary::-webkit-details-marker{display:none}
+.hist summary:before{content:"▸ "}
+.hist[open] summary:before{content:"▾ "}
+.hist ul{margin-top:4px}
+footer{max-width:600px;margin:0 auto;padding:0 16px 40px;color:var(--sub);font-size:12.5px;text-align:center}
+footer .tog{display:inline-block}
+footer .log{text-align:left}
+footer.open .log{display:block}
 </style>
 </head>
 <body>
-<header><h1>자동화 도구 모음<span class="ver" style="font-size:.6em;font-weight:normal;opacity:.75;margin-left:6px">_v1.0</span></h1><span>하고 싶은 작업을 눌러 들어가세요 · 이름 옆이 지금 버전, 「수정 이력」을 펼치면 버전마다 무엇이 바뀌었는지 보입니다</span></header>
-<main>
-<p class="note">웹판은 인터넷에서 바로 열립니다. PC 판은 이 PC 에서 서버(페이지 열기.bat)가 켜져 있을 때 열립니다. 버전·수정 이력은 각 도구 저장소의 version.json 에서 읽어 옵니다.</p>
-<div class="grid" id="grid"></div>
-</main>
-<footer>
-  <details id="hublog"><summary>이 페이지의 수정 이력</summary><ul class="log" id="hublist"></ul></details>
-  <p>저장소: <a href="https://github.com/CAAAAAT0408" target="_blank" rel="noopener">github.com/CAAAAAT0408</a> · 버전은 최초 1.0, 수정 1회마다 0.1 씩 올립니다.</p>
-</footer>
+<header><h1>자동화 도구 모음<span class="ver" style="font-size:.6em;font-weight:normal;opacity:.75;margin-left:6px">_v1.0</span></h1><p>하고 싶은 작업을 골라 「열기」를 누르세요 · 「업데이트 이력」을 펼치면 버전마다 무엇이 바뀌었는지 보입니다</p></header>
+<main id="list"></main>
+<footer id="hubfoot">버전은 최초 1.0, 수정 1회마다 0.1 씩 올립니다 · <span class="tog" data-key="hub">이 페이지 업데이트 이력</span><div class="log" id="log-hub"></div></footer>
+<script id="versions" type="application/json">{"pages": {"budget": {"name": "판관비 예산안 자동작성(연간 예산안)", "version": "1.0", "changelog": [{"version": "1.0", "date": "2026-11-05", "changes": ["버전 관리 시작 — 현재 기능 기준(1.0)"]}], "history": [{"date": "2026-11-03", "note": "판관비 예산안 자동작성 도구 첫 버전(PC 판)"}, {"date": "2026-11-03", "note": "웹판(GitHub Pages) 추가 — 브라우저 안에서 계산·회사 양식 작성"}, {"date": "2026-11-03", "note": "웹판: 예시 3개를 '저장한 현장' 목록에서 바로 불러오기"}, {"date": "2026-11-03", "note": "다른 PC(E:/F:)에서도 그대로 — 저장한 현장 경로 드라이브 보정, 깃허브 올리기.bat"}, {"date": "2026-11-03", "note": "특별공급 세대수 칸 제거(갑지 총세대수로 판단), 결과표 월별 칸에 계산 수식 표시"}, {"date": "2026-11-04", "note": "같은 세목(식대·유류비/숙박비·통신요금·전기료)을 한 줄로 합침 — 산출근거에 구간별 내역, 합계는 통합 금액"}]}, "jichul": {"name": "지출계획서 자동작성", "version": "1.0", "changelog": [{"version": "1.0", "date": "2026-11-05", "changes": ["버전 관리 시작 — 현재 기능 기준(1.0)"]}], "history": [{"date": "2026-11-03", "note": "지출계획서 자동작성 추가 — 같은 기준단가로 3개월 지출계획서(오픈·운영·입주·분양사무실), PC 판·웹판"}, {"date": "2026-11-04", "note": "현장 구분을 견본주택 오픈 / 견본주택 운영으로 분리 — 운영은 오픈 일정 없이 운영 기준"}, {"date": "2026-11-05", "note": "과거 지출계획서 75건(18개 현장)으로 재현 검증, 결과 엑셀·개선 후보 정리"}]}, "overview": {"name": "분양개요 자동작성", "version": "1.0", "changelog": [{"version": "1.0", "date": "2026-11-05", "changes": ["버전 관리 시작 — 현재 기능 기준(1.0)"]}], "history": [{"date": "2026-10-16", "note": "분양개요 자동작성: 웹 버전(GitHub Pages) 추가"}, {"date": "2026-10-18", "note": "납부조건 양식·그림 자르기·견본주택 위치도·보고자료 시트"}, {"date": "2026-10-18", "note": "웹 버전: 분양 홈페이지 그림 자동 모으기(Cloudflare 중계)"}, {"date": "2026-10-23", "note": "맨 앞에 열이 더 있는 양식 지원, 새 보고자료 시트 지워짐 수정"}]}, "contract": {"name": "계약서 자동작성(공급계약서·추가선택품목)", "version": "1.0", "changelog": [{"version": "1.0", "date": "2026-11-05", "changes": ["버전 관리 시작 — 현재 기능 기준(1.0)"]}], "history": [{"date": "2026-10-02", "note": "공급계약서 자동작성 도구(브라우저 버전 + 사내 서버 버전)"}, {"date": "2026-10-02", "note": "추가선택품목 계약서(엑셀) 탭 추가"}, {"date": "2026-10-06", "note": "예전 양식 공고·샘플 지원, 수정 표시가 남은 HWP 읽기 오류 수정"}, {"date": "2026-10-06", "note": "추가선택품목: 모집공고 기준으로 품목 표를 다시 짜기"}, {"date": "2026-10-06", "note": "결과 파일 이름: 공고 파일 이름 앞에 기호·날짜가 붙어도 현장명을 찾기"}]}, "hub": {"name": "자동화 도구 모음", "version": "1.0", "changelog": [{"version": "1.0", "date": "2026-11-05", "changes": ["자동화 도구 모음 페이지 첫 버전 — 도구 4개 바로가기(웹판), 이름 옆 버전, 업데이트 이력"]}], "history": []}}}</script>
 <script>
 const TOOLS = [
   {key: 'budget', repo: 'pangwanbi-budget', name: '판관비 예산안 자동작성', desc: '현장 조건을 넣으면 그 해 기준안대로 연간 판관비 예산안을 계산해 회사 「사업비 예산편성 양식」 엑셀로 만듭니다.',
-   web: 'https://caaaaat0408.github.io/pangwanbi-budget/', pc: 'http://localhost:8792/', folder: '★ 판관비 예산안 \\ ☆ 예산안 자동작성 (페이지 열기.bat)'},
+   open: 'https://caaaaat0408.github.io/pangwanbi-budget/'},
   {key: 'jichul', repo: 'pangwanbi-budget', name: '지출계획서 자동작성', desc: '3개월 선급금 지출계획서(견본주택 오픈·운영 / 입주 / 분양사무실)를 예산안과 같은 기준단가로 만듭니다.',
-   web: 'https://caaaaat0408.github.io/pangwanbi-budget/jichul/', pc: 'http://localhost:8792/jichul/', folder: '★ 판관비 예산안 \\ ☆ 예산안 자동작성 (지출계획서 열기.bat)'},
+   open: 'https://caaaaat0408.github.io/pangwanbi-budget/jichul/'},
   {key: 'overview', repo: 'bunyang-overview', name: '분양개요 자동작성', desc: '입주자모집공고(PDF)와 이전 현장의 분양개요 양식으로 새 분양개요·청약결과 엑셀을 만듭니다.',
-   web: 'https://caaaaat0408.github.io/bunyang-overview/', pc: 'http://localhost:8791/', folder: '☆ 분양개요 자동작성 (페이지 열기.bat)'},
+   open: 'https://caaaaat0408.github.io/bunyang-overview/'},
   {key: 'contract', repo: 'contract-builder', name: '계약서 자동작성', desc: '이전 현장 계약서와 새 모집공고(hwp)로 공급계약서·추가선택품목 계약서와 변경내역을 만듭니다.',
-   web: 'https://caaaaat0408.github.io/contract-builder/', pc: 'http://localhost:8790/', folder: '☆ 공급계약서 자동작성 (페이지 열기.bat)'},
-  {key: 'kic', repo: 'KIC-monthly-report', name: '지식산업센터 시세현황 업데이터', desc: '권역별 시세현황 엑셀에 신규월 한 달치를 끼워 넣습니다(PC 전용, 데스크톱 Excel 필요).',
-   web: null, pc: 'http://localhost:8787/', folder: '☆ 시장현황 \\ ★ 지식산업센터 \\ _자동화 (페이지 열기.bat)'},
+   open: 'https://caaaaat0408.github.io/contract-builder/'},
 ];
 const HUB_REPO = 'CAAAAAT0408.github.io';
 const esc = s => String(s ?? '').replace(/[&<>"]/g, c => ({'&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;'}[c]));
-const cache = {};
-async function versionJson(repo) {
-  if (!cache[repo]) cache[repo] = fetch(`https://raw.githubusercontent.com/CAAAAAT0408/${repo}/main/version.json?t=${Date.now()}`, {cache: 'no-store'})
-    .then(r => { if (!r.ok) throw new Error('HTTP ' + r.status); return r.json(); });
-  return cache[repo];
-}
-function logHtml(page) {
-  const items = (page.changelog || []).map(c => `<li><b>v${esc(c.version)}</b><span class="d">${esc(c.date)}</span>${c.changes && c.changes.length > 1 ? '<ul>' + c.changes.map(x => `<li>${esc(x)}</li>`).join('') + '</ul>' : esc((c.changes || [])[0] || '')}</li>`).join('');
-  const hist = (page.history || []).map(h => `<li>${esc(h.date)} · ${esc(h.note)}</li>`).join('');
-  return items + (hist ? `<li><details><summary>1.0 이전 변경 이력 (${page.history.length}건)</summary><ul class="log hist">${hist}</ul></details></li>` : '');
+let DATA = {};
+try { DATA = JSON.parse(document.getElementById('versions').textContent || '{}').pages || {}; } catch (e) { DATA = {}; }
+const ver = k => (DATA[k] && DATA[k].version) || '1.0';
+function logHtml(p) {
+  if (!p) return '<ul><li>업데이트 이력이 없습니다.</li></ul>';
+  const items = (p.changelog || []).map(c => `<li><b>v${esc(c.version)}</b><span class="d">${esc(c.date)}</span>${(c.changes || []).length > 1 ? '<ul>' + c.changes.map(x => `<li>${esc(x)}</li>`).join('') + '</ul>' : esc((c.changes || [])[0] || '')}</li>`).join('');
+  const hist = (p.history || []).map(h => `<li>${esc(h.date)} · ${esc(h.note)}</li>`).join('');
+  return `<ul>${items || '<li>업데이트 이력이 없습니다.</li>'}</ul>` + (hist ? `<details class="hist"><summary>1.0 이전 변경 이력 (${p.history.length}건)</summary><ul>${hist}</ul></details>` : '');
 }
 function card(t) {
-  const links = [];
-  if (t.web) links.push(`<a class="btn" href="${t.web}" target="_blank" rel="noopener">웹판 열기</a>`);
-  links.push(`<a class="btn sub" href="${t.pc}" target="_blank" rel="noopener">PC 판 열기</a>`);
-  links.push(`<a class="btn dim" href="https://github.com/CAAAAAT0408/${t.repo}" target="_blank" rel="noopener">저장소</a>`);
-  return `<section class="card" id="card-${t.key}">
-    <div class="top"><h2>${esc(t.name)}</h2><span class="ver" id="ver-${t.key}">버전 확인 중…</span><span class="date" id="date-${t.key}"></span></div>
-    <p class="desc">${esc(t.desc)}</p>
-    <div class="links">${links.join('')}</div>
-    <div class="note" style="margin:0">폴더: ${esc(t.folder)}</div>
-    <details><summary>수정 이력</summary><ul class="log" id="log-${t.key}"><li class="hist">불러오는 중…</li></ul></details>
-  </section>`;
+  return `<section class="tool" id="tool-${t.key}"><h2>${esc(t.name)}<span class="v">_v${esc(ver(t.key))}</span></h2><p class="desc">${esc(t.desc)}</p>`
+    + `<div class="act"><a class="btn" href="${t.open}" target="_blank" rel="noopener">열기</a><span class="tog" data-key="${t.key}">업데이트 이력</span></div>`
+    + `<div class="log" id="log-${t.key}">${logHtml(DATA[t.key])}</div></section>`;
 }
-document.getElementById('grid').innerHTML = TOOLS.map(card).join('');
-TOOLS.forEach(async t => {
-  const ver = document.getElementById('ver-' + t.key), log = document.getElementById('log-' + t.key), date = document.getElementById('date-' + t.key);
-  try {
-    const j = await versionJson(t.repo);
-    const p = j.pages[t.key];
-    if (!p) throw new Error('version.json 에 ' + t.key + ' 없음');
-    ver.textContent = 'v' + p.version;
-    const last = (p.changelog || [])[0];
-    if (last) date.textContent = '최근 수정 ' + last.date;
-    log.innerHTML = logHtml(p) || '<li class="hist">수정 이력이 없습니다.</li>';
-  } catch (e) {
-    ver.textContent = '버전 정보 없음';
-    ver.classList.add('err');
-    log.innerHTML = `<li class="hist">버전 파일을 읽지 못했습니다 (${esc(e.message)}). 저장소에 version.json 이 올라가 있어야 합니다.</li>`;
-  }
+function render() {
+  document.getElementById('list').innerHTML = TOOLS.map(card).join('');
+  document.getElementById('log-hub').innerHTML = logHtml(DATA.hub);
+}
+render();
+document.addEventListener('click', e => {
+  const t = e.target.closest('.tog');
+  if (t) (t.closest('.tool') || t.closest('footer')).classList.toggle('open');
 });
-(async () => {
-  try {
-    const j = await versionJson(HUB_REPO);
-    const p = j.pages.hub;
-    document.getElementById('hublist').innerHTML = logHtml(p);
-    document.querySelector('#hublog summary').textContent = `이 페이지의 수정 이력 (v${p.version})`;
-  } catch (e) {
-    document.getElementById('hublist').innerHTML = `<li class="hist">읽지 못함 (${esc(e.message)})</li>`;
-  }
-})();
+// 올려 둔 저장소의 version.json 이 더 새 버전이면 그것으로 바꿔 보여줌(인터넷이 안 되거나 아직 안 올렸으면 페이지에 든 값 그대로)
+const repos = {};
+for (const t of TOOLS) (repos[t.repo] = repos[t.repo] || []).push(t.key);
+repos[HUB_REPO] = ['hub'];
+for (const [repo, keys] of Object.entries(repos)) {
+  fetch(`https://raw.githubusercontent.com/CAAAAAT0408/${repo}/main/version.json?t=${Date.now()}`, {cache: 'no-store'}).then(r => r.ok ? r.json() : null).then(j => {
+    if (!j || !j.pages) return;
+    let changed = false;
+    for (const k of keys) {
+      const p = j.pages[k];
+      if (p && (!DATA[k] || parseFloat(p.version) > parseFloat(DATA[k].version))) { DATA[k] = p; changed = true; }
+    }
+    if (changed) render();
+  }).catch(() => {});
+}
 </script>
 </body>
 </html>

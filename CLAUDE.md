@@ -4,5 +4,5 @@
   최초 버전 v1.0, 수정 1회 = +0.1 (1.0 → 1.1 → 1.2). 페이지별 현재 버전·대상 파일·수정 이력은 `version.json`.
   올리는 법: `python bump_version.py <페이지키> "수정 내용"` (브라우저 탭 제목 `<title>` 과 머리글 `<h1>` 의 `_v1.N` 도 함께 바뀜).
   시험 스크립트·메모(작업현황 등)만 바꾼 커밋은 올리지 않는다. 올린 버전·이력은 같은 커밋에 넣는다.
-- 자동화 모음 페이지(저장소 CAAAAAT0408/CAAAAAT0408.github.io, https://caaaaat0408.github.io/)가 각 저장소의 `version.json` 을
-  raw.githubusercontent.com 에서 읽어 버전과 수정사항을 보여주므로, push 해야 모음 페이지에 반영된다.
+- 자동화 모음 페이지(폴더 `..\☆ 자동화 모음`, 저장소 CAAAAAT0408/CAAAAAT0408.github.io, https://caaaaat0408.github.io/)에 버전·업데이트 이력이 보인다.
+  도구 버전을 올린 뒤 모음 폴더에서 `python update_hub.py` 를 돌려 index.html 에 넣고, 도구 저장소와 모음 저장소를 모두 push 한다(각 폴더의 깃허브 올리기.bat).
