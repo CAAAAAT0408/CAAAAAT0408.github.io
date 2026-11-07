@@ -10,10 +10,10 @@ import sys
 
 sys.stdout.reconfigure(encoding="utf-8")
 HERE = os.path.dirname(os.path.abspath(__file__))
-BASE = os.path.dirname(HERE)                      # ...\1. 본사업무
+BASE = os.path.dirname(HERE)                      # ...\1. 본사업무\AI자동화 (도구 저장소들이 같은 층에 있다)
 SRC = {
-    "budget": os.path.join(BASE, "★ 판관비 예산안", "☆ 예산안 자동작성", "version.json"),
-    "jichul": os.path.join(BASE, "★ 판관비 예산안", "☆ 예산안 자동작성", "version.json"),
+    "budget": os.path.join(BASE, "☆ 예산안 자동작성", "version.json"),
+    "jichul": os.path.join(BASE, "☆ 예산안 자동작성", "version.json"),
     "overview": os.path.join(BASE, "☆ 분양개요 자동작성", "version.json"),
     "contract": os.path.join(BASE, "☆ 공급계약서 자동작성", "version.json"),
     # "notice": os.path.join(BASE, "☆ 입주자모집공고 자동작성", "version.json"),   # 완성 전 — 모음 페이지에서 뺌(2026-11-06), 완성되면 되살림
