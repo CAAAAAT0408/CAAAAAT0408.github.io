@@ -14,6 +14,7 @@ BASE = os.path.dirname(HERE)                      # ...\1. 본사업무\AI자동
 SRC = {
     "budget": os.path.join(BASE, "☆ 예산안 자동작성", "version.json"),
     "jichul": os.path.join(BASE, "☆ 예산안 자동작성", "version.json"),
+    "siljeok": os.path.join(BASE, "☆ 예산안 자동작성", "version.json"),
     "overview": os.path.join(BASE, "☆ 분양개요 자동작성", "version.json"),
     "contract": os.path.join(BASE, "☆ 공급계약서 자동작성", "version.json"),
     # "notice": os.path.join(BASE, "☆ 입주자모집공고 자동작성", "version.json"),   # 완성 전 — 모음 페이지에서 뺌(2026-11-06), 완성되면 되살림

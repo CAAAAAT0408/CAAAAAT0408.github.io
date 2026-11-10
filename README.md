@@ -2,7 +2,7 @@
 
 PM 업무 자동화 도구들을 한 페이지에서 열고, 도구마다 **지금 버전**과 **버전별 수정사항**을 보는 페이지입니다.
 
-- 판관비 예산안 자동작성 · 지출계획서 자동작성 (저장소 pangwanbi-budget)
+- 판관비 예산안 자동작성 · 지출계획서 자동작성 · 사업관리비 실적계획 자동작성 (저장소 pangwanbi-budget)
 - 분양개요 자동작성 (bunyang-overview) · 계약서 자동작성 (contract-builder) · 지식산업센터 시세현황 업데이터 (KIC-monthly-report)
 
 ## 처음 한 번: GitHub 에 올리기

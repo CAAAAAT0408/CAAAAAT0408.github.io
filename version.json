@@ -2,11 +2,18 @@
  "pages": {
   "hub": {
    "name": "자동화 도구 모음",
-   "version": "1.3",
+   "version": "1.4",
    "files": [
     "index.html"
    ],
    "changelog": [
+    {
+     "version": "1.4",
+     "date": "2026-11-10",
+     "changes": [
+      "사업관리비 실적계획 자동작성 추가(도구 5개)"
+     ]
+    },
     {
      "version": "1.3",
      "date": "2026-11-09",
