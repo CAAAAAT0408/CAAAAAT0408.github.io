@@ -2,11 +2,18 @@
  "pages": {
   "hub": {
    "name": "자동화 도구 모음",
-   "version": "1.5",
+   "version": "1.6",
    "files": [
     "index.html"
    ],
    "changelog": [
+    {
+     "version": "1.6",
+     "date": "2026-11-11",
+     "changes": [
+      "지식산업센터 시세현황 업데이터 추가(칸 5개) — 웹판이 없는 PC 전용이라 「이 PC 에서 열기」(서버가 켜진 PC 의 localhost:8787)와 「PC 전용」 표시, 안 열릴 때 안내"
+     ]
+    },
     {
      "version": "1.5",
      "date": "2026-11-10",

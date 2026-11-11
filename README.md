@@ -3,7 +3,8 @@
 PM 업무 자동화 도구들을 한 페이지에서 열고, 도구마다 **지금 버전**과 **버전별 수정사항**을 보는 페이지입니다.
 
 - 판관비 예산안 자동작성 · 사업관리비 실적계획 자동작성(한 페이지 — 위쪽 탭으로 고름, 모음에서도 한 칸) · 지출계획서 자동작성 (저장소 pangwanbi-budget)
-- 분양개요 자동작성 (bunyang-overview) · 계약서 자동작성 (contract-builder) · 지식산업센터 시세현황 업데이터 (KIC-monthly-report)
+- 분양개요 자동작성 (bunyang-overview) · 계약서 자동작성 (contract-builder) · 지식산업센터 시세현황 업데이터 (KIC-monthly-report — 웹판 없는 PC 전용,
+  「이 PC 에서 열기」는 서버가 켜진 PC 의 http://localhost:8787/ 을 엶. 저장소가 비공개라 버전·이력은 `update_hub.py` 가 넣은 값으로만 보임 → 버전을 올리면 update_hub 후 이 저장소도 push)
 
 ## 처음 한 번: GitHub 에 올리기
 1. GitHub(CAAAAAT0408 계정)에서 **New repository** → 이름 `CAAAAAT0408.github.io` (Public) 로 빈 저장소를 만든다.

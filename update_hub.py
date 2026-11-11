@@ -17,6 +17,7 @@ SRC = {
     "siljeok": os.path.join(BASE, "☆ 예산안 자동작성", "version.json"),
     "overview": os.path.join(BASE, "☆ 분양개요 자동작성", "version.json"),
     "contract": os.path.join(BASE, "☆ 공급계약서 자동작성", "version.json"),
+    "kic": os.path.join(BASE, "☆ 지식산업센터 시세현황 업데이터", "version.json"),   # PC 전용·비공개 저장소 — 페이지가 올라간 값을 못 읽어 여기서 넣은 값만 보임(2026-11-11 추가)
     # "notice": os.path.join(BASE, "☆ 입주자모집공고 자동작성", "version.json"),   # 완성 전 — 모음 페이지에서 뺌(2026-11-06), 완성되면 되살림
     "hub": os.path.join(HERE, "version.json"),
 }
